@@ -16,6 +16,7 @@ class SliderBattle extends Component {
 
   render() {
     const battles = this.props.battles;
+    console.log("From silider " + battles);
     if (battles != undefined && battles.length > 0) {
       return (
         <Carousel>

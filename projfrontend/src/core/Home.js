@@ -47,15 +47,20 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    console.log(PORT);
-    axios.get(PORT + "/api/list").then((response) => {
-      console.log(response.data);
-      this.setState({
-        isLoaded: true,
-        battles: response.data,
-        value: "",
+    console.log("calling from ", PORT);
+    axios
+      .get(PORT + "/api/list")
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          isLoaded: true,
+          battles: response.data,
+          value: "",
+        });
+      })
+      .catch((error) => {
+        console.log("Error connecting", error);
       });
-    });
     console.log(this.state.battles);
   }
 
