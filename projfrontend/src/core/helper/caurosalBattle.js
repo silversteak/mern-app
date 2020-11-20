@@ -16,13 +16,15 @@ class SliderBattle extends Component {
 
   render() {
     const battles = this.props.battles;
-    return (
-      <Carousel>
-        {battles.map((battle) => (
-          <Battlefield key={battle.name} value={battle} />
-        ))}
-      </Carousel>
-    );
+    if (battles != undefined && battles.length > 0) {
+      return (
+        <Carousel>
+          {battles.map((battle) => (
+            <Battlefield key={battle.name} value={battle} />
+          ))}
+        </Carousel>
+      );
+    } else return <h1>Empty</h1>;
   }
 }
 
